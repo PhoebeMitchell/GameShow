@@ -1,19 +1,22 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class Movement : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private float _speed;
-
-    private Rigidbody2D _rigidbody2D;
-
-    public Vector2 Direction
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class Movement : MonoBehaviour
     {
-        set => _rigidbody2D.velocity = value.normalized * _speed;
-    }
+        [SerializeField] private float _speed;
 
-    private void Awake()
-    {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        private Rigidbody2D _rigidbody2D;
+
+        public Vector2 Direction
+        {
+            set => _rigidbody2D.velocity = value.normalized * _speed;
+        }
+
+        private void Awake()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
     }
 }
